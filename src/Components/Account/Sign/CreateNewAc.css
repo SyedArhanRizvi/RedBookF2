@@ -1,0 +1,77 @@
+/* https://media.istockphoto.com/id/530240223/photo/library.jpg?s=612x612&w=0&k=20&c=Vg8BKBWGoSY6KUfpNVPJc3N1WkmdfTmrUCk-9c-pVAo= */
+
+.createNewAc{
+    width: 100vw;
+    height: 86.3vh;
+    background-image: url("https://i.pinimg.com/originals/16/36/a2/1636a292f50e880151a832fb7ba79cfc.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    color: white;
+}
+.createNewAc .form {
+    width: 80%;
+    height: 100%;
+    background: #000000c7;
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    justify-content: center;
+    gap: 40px;
+}
+.createNewAc .form .text{
+    width: 100%;
+    /* height: 30%; */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.createNewAc .form .text h1{
+    font-size: 1.8vw;
+    font-weight: bold;
+}
+.createNewAc .form .text p a{
+    text-decoration: none;
+    color: white;
+    transition: 0.5s;
+}
+.createNewAc .form .text p a:hover{
+    color: cadetblue;
+}
+.createNewAc .form form{
+    width: 100%;
+    /* height: 50%; */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.createNewAc .form form input {
+    width: 35%;
+    height: 3rem;
+    background: #000;
+    color: white;
+    border: 1px solid rgba(192, 192, 192, 0.685);
+    padding-left: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.createNewAc .form form .btn {
+    background: rgba(121, 0, 0, 0.842);
+    border: none;
+}
+.createNewAc .form form .btn:hover{
+    background: black;
+    color: white;
+    border: 1px solid rgba(192, 192, 192, 0.685);
+}
+.createNewAc .empty{
+    width: 20%;
+    height: 100%;
+    background: #000000ad;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}

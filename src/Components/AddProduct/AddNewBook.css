@@ -1,0 +1,140 @@
+.addNewBookSection {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #23575e; /* Soft cyan background */
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.addNewBookSection .formContainer {
+    width: 80%;
+    max-width: 800px;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.addNewBookSection .formContainer .pageCount {
+    align-self: flex-end;
+    padding: 8px 20px;
+    font-size: 1rem;
+    color: #333;
+    border: 1px solid #b0bec5;
+    border-radius: 5px;
+    background-color: #eceff1;
+}
+
+.addNewBookSection .formContainer form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.addNewBookSection .formContainer form input,
+.addNewBookSection .formContainer form select,
+.addNewBookSection .formContainer form textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #cfd8dc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.addNewBookSection .formContainer form input:focus,
+.addNewBookSection .formContainer form select:focus,
+.addNewBookSection .formContainer form textarea:focus {
+    border-color: #4db6ac; /* Teal accent */
+    outline: none;
+    background-color: #ffffff;
+}
+
+.addNewBookSection .formContainer form input[type="text"] {
+    height: 3rem;
+}
+
+.addNewBookSection .formContainer form textarea {
+    min-height: 8rem;
+    resize: vertical;
+}
+
+.addNewBookSection .formContainer form button {
+    width: 100%;
+    max-width: 200px;
+    padding: 10px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #00796b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.addNewBookSection .formContainer form button:hover {
+    background-color: #004d40;
+}
+
+.addNewBookSection .formContainer form #edit {
+    width: 100%;
+    max-width: 600px;
+    min-height: 20rem;
+    border: 1px solid #cfd8dc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.addNewBookSection .formContainer form #edit:focus-within {
+    border-color: #4db6ac; /* Teal accent */
+    background-color: #ffffff;
+}
+/* Style for the label and checkbox */
+.addNewBookSection .formContainer form label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Style for the checkbox itself */
+.addNewBookSection .formContainer form input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    border: 2px solid #4db6ac; /* Teal border */
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* When the checkbox is checked */
+.addNewBookSection .formContainer form input[type="checkbox"]:checked {
+    background-color: #4db6ac; /* Teal background */
+    border-color: #4db6ac; /* Teal border */
+}
+
+/* Focused state for the checkbox */
+.addNewBookSection .formContainer form input[type="checkbox"]:focus {
+    outline: none;
+    border-color: #4db6ac;
+}
+
+/* Styling for the label text */
+.addNewBookSection .formContainer form p {
+    font-size: 1rem;
+    color: #333;
+    margin: 0;
+}

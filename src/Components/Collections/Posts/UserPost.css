@@ -1,0 +1,92 @@
+.cartContainer {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.postDeletePopUp {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    background-color: #1c1c1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #fff;
+    animation: fadeIn 0.3s ease;
+    z-index: 1000;
+}
+
+.warningText {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #ffcccb;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.deleteButton, .cancelButton {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.deleteButton {
+    background-color: #e63946;
+    color: white;
+}
+
+.deleteButton:hover {
+    background-color: #b82a34;
+    transform: scale(1.05);
+}
+
+.cancelButton {
+    background-color: #4a4a4a;
+    color: white;
+}
+
+.cancelButton:hover {
+    background-color: #6c757d;
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+.booksList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}

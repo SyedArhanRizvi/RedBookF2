@@ -1,0 +1,78 @@
+.landingPage {
+    width: 100vw;
+    height: 86.2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+    color: white;
+    padding-bottom: 35px;
+    padding-top: 10px;
+    overflow: hidden;
+    gap: 50px;
+}
+
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    border: 2px solid rgb(255, 207, 149);
+    ;
+    /* background: rgba(255, 207, 149, 0.447); */
+    height: 40px;
+    width: 40px;
+    box-shadow: 1px 0px 23px 0px rgba(193, 134, 70, 0.99);
+    -webkit-box-shadow: 1px 0px 23px 0px rgba(193, 134, 70, 0.99);
+    -moz-box-shadow: 1px 0px 23px 0px rgba(193, 134, 70, 0.99);
+    border-radius: 50%;
+}
+
+.landingPage .center1 {
+    /* border: 2px solid white; */
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.landingPage .center1 .sentencesDiv {
+    width: 100%;
+    text-align: center;
+    text-align: center;
+    white-space: nowrap; /* Prevent text from wrapping */
+    /* overflow: auto;  */
+}
+.landingPage .center1 .sentencesDiv h1 {
+    font-size: 5vw;
+    letter-spacing: 20px;
+    cursor: pointer;
+}
+.landingPage .center1 .sentencesDiv h1 span{
+    color: rgb(255, 0, 0);
+}
+.landingPage .center2 {
+    /* border: 2px solid white; */
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(39, 39, 39, 0.824);
+    padding-top: 40px;
+}
+
+.landingPage .center2 div {
+    display: flex;
+    gap: 40px;
+}
+
+.landingPage .center2 div h3 {
+    font-size: 1vw;
+}
+
+.landingPage .center2 div h3 a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}

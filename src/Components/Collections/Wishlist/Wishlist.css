@@ -1,0 +1,12 @@
+.wishlistSection {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 30px;
+    padding-top: 70px;
+}

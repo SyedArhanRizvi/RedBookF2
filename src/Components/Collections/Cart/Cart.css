@@ -1,0 +1,8 @@
+.cartContainer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* background: rgb(137, 160, 95); */
+    width: 100%;
+    /* min-height: 60vh; */
+}

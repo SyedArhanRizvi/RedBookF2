@@ -1,0 +1,825 @@
+.userPage {
+    width: 100vw;
+    min-height: 100vh;
+    /* Ensure it takes full height of viewport */
+    display: flex;
+    position: relative;
+    color: white;
+    background: #000;
+    /* background: #000; */
+    /* padding-bottom: 50px; */
+}
+
+/* POP UP SECTION */
+/* .postDeletePopUp {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    background-color: #1c1c1e;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #fff;
+    animation: fadeIn 0.3s ease;
+    z-index: 1000;
+}
+
+.warningText {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #ffcccb;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.deleteButton, .cancelButton {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.deleteButton {
+    background-color: #e63946;
+    color: white;
+}
+
+.deleteButton:hover {
+    background-color: #b82a34;
+    transform: scale(1.05);
+}
+
+.cancelButton {
+    background-color: #4a4a4a;
+    color: white;
+}
+
+.cancelButton:hover {
+    background-color: #6c757d;
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+} */
+
+.chatbotContainer {
+    position: absolute;
+    bottom: 300px;
+    right: 30px;
+    z-index: 1000;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.expanded {
+    width: 300px;
+    height: 400px;
+    background-color: #1e1e1e;
+    padding: 20px;
+    animation: fadeInUp 0.6s ease;
+}
+
+.minimized {
+    width: 60px;
+    height: 60px;
+    background-color: #007bff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: move;
+}
+
+.circleMode p {
+    font-size: 24px;
+    margin: 0;
+}
+
+.popupContent h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #00e676;
+}
+
+.popupContent p {
+    font-size: 14px;
+    color: #cccccc;
+    margin-top: 10px;
+}
+
+.chatWindow {
+    background-color: #2a2a2a;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+    height: 200px;
+    overflow-y: auto;
+}
+
+.message {
+    padding: 8px;
+    border-radius: 4px;
+    margin: 5px 0;
+    max-width: 80%;
+    font-size: 14px;
+}
+
+.message.user {
+    background-color: #4a90e2;
+    align-self: flex-end;
+    color: white;
+    text-align: right;
+}
+
+.message.bot {
+    background-color: #616161;
+    align-self: flex-start;
+    color: white;
+    text-align: left;
+}
+
+.inputContainer {
+    display: flex;
+    margin-top: 10px;
+}
+
+input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+}
+
+.sendButton {
+    background-color: #00e676;
+    color: white;
+    padding: 8px 12px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sendButton:hover {
+    background-color: #00c06d;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: space-between;
+}
+
+.removeButton, .openButton {
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.removeButton {
+    background-color: #e63946;
+    color: white;
+}
+
+.removeButton:hover {
+    background-color: #b82a34;
+    transform: scale(1.05);
+}
+
+.openButton {
+    background-color: #4caf50;
+    color: white;
+}
+
+.openButton:hover {
+    background-color: #388e3c;
+    transform: scale(1.05);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.userPage .logoutPopUp {
+    position: fixed;
+    top: 20%;
+    left: 23%;
+    height: 60vh;
+    width: 60vw;
+    border: 1px solid silver;
+    background: #000;
+    color: white;
+    z-index: 500;
+    box-shadow: -1px 3px 84px 200px rgba(0, 0, 0, 0.71);
+    -webkit-box-shadow: -1px 3px 84px 200px rgba(0, 0, 0, 0.71);
+    -moz-box-shadow: -1px 3px 84px 200px rgba(0, 0, 0, 0.71);
+}
+.userPage .adminAcPopUp {
+    position: fixed;
+    top: 20%;
+    left: 23%;
+    height: 60vh;
+    width: 60vw;
+    border: 1px solid silver;
+    background: #000;
+    color: white;
+    z-index: 500;
+    box-shadow: -1px 3px 84px 200px rgba(0, 0, 0, 0.71);
+    -webkit-box-shadow: -1px 3px 84px 200px rgba(0, 0, 0, 0.71);
+    -moz-box-shadow: -1px 3px 84px 200px rgba(0, 0, 0, 0.71);
+}
+
+.userPage .logoutPopUp form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.userPage .logoutPopUp form input {
+    width: 80%;
+    height: 3rem;
+    border: 1px solid silver;
+    background: #000;
+    color: white;
+    padding-left: 4px;
+}
+
+.userPage .logoutPopUp form .btn {
+    width: 80%;
+    height: 3rem;
+    border: 1px solid maroon;
+    background: maroon;
+    color: white;
+    padding-left: 4px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.userPage .logoutPopUp form .goBack {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+    transition: 0.5s;
+}
+
+.userPage .logoutPopUp form .goBack:hover {
+    color: maroon;
+}
+
+.userPage .logoutPopUp form .btn:hover {
+    background: #000;
+    border: 1px solid silver;
+}
+
+.userPage .logout2PpUp {
+    position: fixed;
+    top: 20%;
+    left: 25%;
+    height: 50vh;
+    width: 50vw;
+    border: 1px solid silver;
+    background: #000;
+    color: white;
+    z-index: 500;
+    box-shadow: -1px 3px 84px 200px rgba(0, 0, 0, 0.71);
+    -webkit-box-shadow: -1px 3px 84px 200px rgba(0, 0, 0, 0.71);
+    -moz-box-shadow: -1px 3px 84px 200px rgba(0, 0, 0, 0.71);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userPage .logout2PpUp div {
+    width: 90%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+}
+
+.userPage .logout2PpUp div p {
+    word-spacing: 5px;
+    /* column-gap: 10px; */
+}
+
+.userPage .logout2PpUp div button {
+    width: 40%;
+    color: white;
+    font-weight: bold;
+    height: 3rem;
+    background: maroon;
+    border: 1px solid maroon;
+    cursor: pointer;
+    /* border: none; */
+    transition: 0.5s;
+}
+
+.userPage .logout2PpUp div button:hover {
+    background: #000;
+    border: 1px solid white;
+    color: white;
+}
+
+.userPage .editAcPopUp {
+    position: fixed;
+    top: 40px;
+    left: 80px;
+    width: 90vw;
+    height: 90vh;
+    border: 1px solid silver;
+    background: #000;
+    color: white;
+    z-index: 500;
+    box-shadow: -1px 3px 84px 200px rgba(0, 0, 0, 0.71);
+    -webkit-box-shadow: -1px 3px 84px 200px rgba(0, 0, 0, 0.71);
+    -moz-box-shadow: -1px 3px 84px 200px rgba(0, 0, 0, 0.71);
+}
+
+.userPage .editAcPopUp form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.userPage .editAcPopUp form input {
+    width: 60%;
+    height: 8%;
+    padding-left: 5px;
+    background: #000;
+    color: white;
+    border: 1px solid silver;
+}
+
+.userPage .editAcPopUp form button {
+    height: 3rem;
+    width: 10%;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    align-self: flex-end;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+    color: white;
+}
+
+.userPage .editAcPopUp form .submit {
+    background: maroon;
+    border: 1px solid maroon;
+    height: 3rem;
+    width: 10%;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    align-self: flex-end;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+    color: white;
+}
+
+.userPage .editAcPopUp form .cancel {
+    background: yellowgreen;
+    border: 1px solid yellowgreen;
+    color: black;
+}
+
+.userPage .editAcPopUp form button:hover {
+    background: #000;
+    color: white;
+    border: 1px solid white;
+}
+
+.userPage .editAcPopUp form .submit:hover {
+    background: #000;
+    color: white;
+    border: 1px solid white;
+}
+
+.userPage .editAcPopUp form .img {
+    width: 60%;
+    height: 18%;
+    /* background: cadetblue; */
+    display: flex;
+    align-items: center;
+    /* flex-direction: column; */
+    gap: 10px;
+
+}
+
+.userPage .editAcPopUp form .img label {
+    cursor: pointer
+}
+
+.userPage .editAcPopUp form .img div {
+    /* background: rebeccapurple; */
+    width: 6rem;
+    height: 65%;
+    border-radius: 50%;
+    text-align: center;
+    border: 1px solid silver;
+    overflow: hidden;
+}
+
+.userPage .editAcPopUp form .img div p {
+    margin-top: 30px;
+}
+
+.userPage .editAcPopUp form .img div img {
+    height: 100%;
+    width: 100%;
+}
+
+.userPage .editAcPopUp form .img input {
+    display: none;
+}
+
+.userPage .removedAcPopUp {
+    position: fixed;
+    top: 20%;
+    left: 25%;
+    height: 50vh;
+    width: 50vw;
+    border: 1px solid silver;
+    background: #000;
+    color: white;
+    z-index: 500;
+    box-shadow: -1px 3px 84px 200px rgba(0, 0, 0, 0.71);
+    -webkit-box-shadow: -1px 3px 84px 200px rgba(0, 0, 0, 0.71);
+    -moz-box-shadow: -1px 3px 84px 200px rgba(0, 0, 0, 0.71);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userPage .removedAcPopUp div {
+    width: 90%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+}
+
+.userPage .removedAcPopUp div p {
+    word-spacing: 5px;
+    /* column-gap: 10px; */
+}
+
+.userPage .removedAcPopUp div button {
+    width: 40%;
+    color: white;
+    font-weight: bold;
+    height: 3rem;
+    background: maroon;
+    border: 1px solid maroon;
+    cursor: pointer;
+    /* border: none; */
+    transition: 0.5s;
+}
+
+.userPage .removedAcPopUp div button:hover {
+    background: #000;
+    border: 1px solid white;
+    color: white;
+}
+
+.userPage .adminAcPopUp{
+    position: fixed;
+    top: 20%;
+    left: 23%;
+    width: 60vw;
+    height: 60vh;
+    border: 1px solid silver;
+    background: #000;
+    color: white;
+    z-index: 500;
+    box-shadow: -1px 3px 84px 200px rgba(0, 0, 0, 0.71);
+    -webkit-box-shadow: -1px 3px 84px 200px rgba(0, 0, 0, 0.71);
+    -moz-box-shadow: -1px 3px 84px 200px rgba(0, 0, 0, 0.71);
+}
+
+.userPage .adminAcPopUp form{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.userPage .adminAcPopUp form .cancel {
+    width: 60%;
+    height: 10%;
+    background: yellowgreen;
+    border: 1px solid yellowgreen;
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.userPage .adminAcPopUp form  input {
+    width: 60%;
+    height: 10%;
+    padding-left: 5px;
+    background: #000;
+    color: white;
+    border: 1px solid silver;
+}
+.userPage .adminAcPopUp form  select {
+    width: 60%;
+    height: 10%;
+    padding-left: 5px;
+    background: #000;
+    color: white;
+    border: 1px solid silver;
+    font-weight: bold;
+    cursor: pointer;
+}
+.userPage .adminAcPopUp form  select option {
+    font-weight: bold;
+    cursor: pointer;
+}
+.userPage .adminAcPopUp form  .btn {
+    width: 60%;
+    height: 10%;
+    padding-left: 5px;
+    background: maroon;
+    color: white;
+    border: 1px solid maroon;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.userPage .adminAcPopUp form  .btn:hover{
+    background: #000;
+    border: 1px solid silver;
+}
+.userPage .adminAcPopUp form  .cancel:hover{
+    background: #000;
+    color: white;
+    border: 1px solid silver;
+}
+/*  ----------------------  */
+.userPage .sidePage {
+    width: 15vw;
+    height: 100vh;
+    /* Set to viewport height */
+    position: fixed;
+    /* Fix position so it doesn't scroll */
+    top: 0;
+    left: 0;
+    background: #101010;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid rgba(39, 39, 39, 0.824);
+    border-right: 1px solid rgba(39, 39, 39, 0.824);
+    z-index: 1;
+}
+
+.userPage .sidePage .s1 {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    gap: 10px;
+}
+
+.userPage .sidePage .s1 .normalPara {
+    cursor: pointer;
+    transition: 0.5s;
+    padding: 10px 25px;
+}
+.userPage .sidePage .s1 .normalPara a{
+    text-decoration: none;
+    color: white;
+}
+
+.userPage .sidePage .s1 .mainPara {
+    cursor: pointer;
+    transition: 0.5s;
+    padding: 10px 30px;
+    border-bottom: 1px solid rgba(39, 39, 39, 0.824);
+    border-top: 1px solid rgba(39, 39, 39, 0.824);
+    cursor: none;
+}
+
+.userPage .sidePage .s1 .normalPara:hover {
+    background: rgba(39, 39, 39, 0.925);
+}
+
+.userPage .sidePage .s2 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.userPage .sidePage .s2 .p {
+    cursor: pointer;
+
+    transition: 0.5s;
+}
+
+.userPage .sidePage .s2 .p:hover {
+    color: rgb(255, 153, 153);
+}
+
+.userPage .sidePage .s2 .btn {
+    padding: 10px 40px;
+    background: maroon;
+    border: 1px solid maroon;
+    color: white;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.userPage .sidePage .s2 .btn:hover {
+    background: #000;
+    border: 1px solid silver;
+}
+
+.userPage .maindiv {
+    margin-left: 15vw;
+    /* Adjust for sidebar width */
+    width: 85vw;
+    min-height: 100vh;
+    /* Full height */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-top: 1px solid rgba(39, 39, 39, 0.824);
+}
+
+.userPage .maindiv .nav {
+    width: 100%;
+    height: auto;
+    /* Adjust height for content */
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.userPage .maindiv .nav .user {
+    width: auto;
+    display: flex;
+    gap: 5px;
+
+}
+
+.userPage .maindiv .nav .user .img {
+    height: 4.5rem;
+    width: 80px;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.userPage .maindiv .nav .user .img img {
+    height: 100%;
+    width: 100%;
+    border: 1px solid silver;
+    border-radius: 50%;
+}
+
+.userPage .maindiv .nav .user .details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* background: rebeccapurple; */
+    gap: 3px;
+}
+
+.userPage .maindiv .nav .user .details h3 {
+    font-weight: bold;
+}
+
+.userPage .maindiv .nav .user .details p {
+    color: rgb(195, 194, 194);
+}
+
+.userPage .maindiv .nav .user .details p span {
+    color: white;
+    font-family: sans-serif;
+}
+.userPage .maindiv .nav .user .details p .authorType {
+    color: gray;
+    border-bottom-style: dashed;
+}
+.userPage .maindiv .nav .notifications {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-right: 20px;
+}
+
+.userPage .maindiv .nav .notifications .logout {
+    padding: 8px 40px;
+    background: maroon;
+    cursor: pointer;
+    border: 1px solid maroon;
+    transition: 0.5s;
+}
+
+.userPage .maindiv .nav .notifications .logout:hover {
+    background: #000;
+    border: 1px solid silver;
+}
+
+.userPage .maindiv .body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.userPage .maindiv .body .persnol {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(39, 39, 39, 0.824);
+    padding-bottom: 15px;
+    padding-right: 10px;
+}
+
+.userPage .maindiv .body .persnol div {
+    width: 18%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+    /* margin-right: 10px; */
+}
+
+.userPage .maindiv .body .persnol div:hover {
+    background: rgba(39, 39, 39, 0.925);
+}
+
+.userPage .maindiv .body .postContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    padding-top: 40px;
+    position: relative;
+    background-color: #1a1a1a; /* Dark background */
+    color: #e0e0e0; /* Light text color */
+}
