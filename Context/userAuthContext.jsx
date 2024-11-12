@@ -9,6 +9,8 @@ export const AppProvider = ({ children }) => {
   const [theme, setTheme] = useState("dark"); // e.g., for theme management
   const [rbUserPosts, setRBUserPosts] = useState([]); // initialized as an array to avoid errors with .map
   const [wishlistBook, setWishlistBooks] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
+  // const [wishlistBook, setWishlistBooks] = useState([]);
 
   const toggleTheme = () =>
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
@@ -24,7 +26,8 @@ export const AppProvider = ({ children }) => {
         rbUserPosts,
         setRBUserPosts,
         wishlistBook, 
-        setWishlistBooks
+        setWishlistBooks,
+        cartItems, setCartItems
       }}
     >
             {children}   {" "}

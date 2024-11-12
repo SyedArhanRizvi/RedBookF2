@@ -219,7 +219,7 @@ function MainSection() {
           </select>
         </div>
 
-        <div className="price-filter">
+        {/* <div className="price-filter">
           <label htmlFor="priceRange">Filter by Price:</label>
           <input
             type="range"
@@ -232,15 +232,15 @@ function MainSection() {
             onInput={(e) => setRangePrice(e.target.value)}
           />
           <div className="range-output">Price: $0 - ${rangePrice}</div>
-        </div>
+        </div> */}
 
-        <div className="filterByName">
+        {/* <div className="filterByName">
           <input
             type="text"
             placeholder="Search book or author"
             onChange={(e) => setFilterBySearch(e.target.value)}
           />
-        </div>
+        </div> */}
         <div className="book-filter">
           <label>Filter by Book Type:</label>
           <br />
@@ -276,9 +276,6 @@ function MainSection() {
           <label htmlFor="authorSelect">Filter by Author:</label>
           <select id="authorSelect" value={author} onChange={filterByAuthor}>
             <option value="all">All Authors</option>
-            <option value="author1">Author 1</option>
-            <option value="author2">Author 2</option>
-            <option value="author3">Author 3</option>
           </select>
         </div>
       </div>

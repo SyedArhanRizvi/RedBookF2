@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./Wishlist.css";
 import WishCard from "../../Cards/WishCard";
 import axios from "axios";
+import { useAppContext } from "../../../../Context/userAuthContext";
 
 function Wishlist({ redBookUser }) {
-  const [wishlistBook, setWishlistBooks] = useState([]);
+  const {wishlistBook, setWishlistBooks} = useAppContext();
   const [wishBook, setWishBook] = useState([]);
 
   const getItemViaID = async (id) => {
@@ -41,7 +42,7 @@ function Wishlist({ redBookUser }) {
     wishlistBook.forEach((bookID) => {
       getItemViaID(bookID);
     });
-  }, [wishlistBook]);
+  }, []);
 
   return (
     <div className="wishlistSection">

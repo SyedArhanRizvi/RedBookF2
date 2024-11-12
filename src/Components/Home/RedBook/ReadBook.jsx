@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ReadBook.css";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 // import { loginAccountController } from "../../../../../BackEnd/Controllers/user.Controller";
 
 function ReadBook() {
@@ -11,6 +12,8 @@ function ReadBook() {
   const [freeOrNot, setFreeOrNot] = useState(false);
   const [enterInBook, setEnterInBook] = useState(false);
   const [publisherObj, setPublisherObj] = useState();
+  const [reviews, setReviews] = useState([]);
+  const [newReview, setNewReview] = useState("");
 
   const bookPagesHandler = () => {
     setEnterInBook(true);
@@ -21,7 +24,6 @@ function ReadBook() {
       const publisherDetails = await axios.get(`http://localhost:3500/api/user/showUserDetails/${publisherId}`);
       setPublisherObj(publisherDetails.data.user);
       console.log("This is publisher obj ", publisherObj.fullName);
-      
     } catch (error) {
       console.log("Error fetching publisher details: ", error);
     }
@@ -44,13 +46,36 @@ function ReadBook() {
     }
   };
 
+  const fetchReviews = async () => {
+    try {
+      const response = await axios.get(`http://localhost:3500/api/books/${bookID}/reviews`);
+      setReviews(response.data.reviews);
+    } catch (error) {
+      console.log("Error fetching reviews: ", error);
+    }
+  };
+
+  const submitReview = async () => {
+    try {
+      if (newReview) {
+        const response = await axios.post(`http://localhost:3500/api/books/${bookID}/reviews`, { review: newReview });
+        setReviews([...reviews, response.data.review]);
+        setNewReview("");
+      }
+    } catch (error) {
+      console.log("Error submitting review: ", error);
+    }
+  };
+
   useEffect(() => {
     readWholeBook();
   }, []);
 
-  const cartProductsHandler = async ()=>{
+  const cartProductsHandler = async (bookID)=>{
+    console.log("This is cart book id ", bookID);
+    
     try {
-      // const cartProd = await axios.post()
+      const cartProd = await axios.post(`http://localhost:3500/api/cart/addBookIntoCart${bookID}`, {}, {withCredentials:true});
     } catch (error) {
       console.log("There is some errors in your cart product handler plz fix the bug first ", error);
     }
@@ -91,12 +116,40 @@ function ReadBook() {
           </div>
           <div className="btns">
             {!freeOrNot && <button>Buy</button>}
-            <button onClick={cartProductsHandler}>Cart</button>
+            <button onClick={()=>cartProductsHandler(bookObj?._id)}>Cart</button>
             <button onClick={bookPagesHandler}>Enter in Book</button>
           </div>
         </div>
+        <div className="reviewsSection">
+          <h3>Reviews & Feedback</h3>
+          <textarea
+            value={newReview}
+            onChange={(e) => setNewReview(e.target.value)}
+            placeholder="Write your review here..."
+            className="reviewInput"
+          />
+          <button onClick={submitReview} className="submitReviewButton">Submit Review</button>
+          <button className="backToHom"><Link to="/mainSection">Back</Link></button>
+          
+        </div>
+        {/* <div className="reviewsList"> */}
+            {/* {reviews.map((review, index) => (
+              <div className="reviewItem" key={index}>
+                <p>{review}</p>
+              </div>
+            ))} */}
+          {/* </div> */}
       </div>
-
+      
+      <div className="orderRelated">
+          <div className="btns">
+            <button onClick={bookPagesHandler}>Enter in Book</button>
+          </div>
+          
+        </div>
+        {/* Reviews Section */}
+        
+      {/* </div> */}
       {enterInBook && (
         <div className="bookPages">
           <button className="closeButton" onClick={() => setEnterInBook(false)}>

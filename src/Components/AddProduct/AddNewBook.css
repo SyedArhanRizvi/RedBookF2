@@ -7,6 +7,7 @@
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    color: black;
 }
 
 .addNewBookSection .formContainer {
@@ -19,6 +20,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    color: black;
 }
 
 .addNewBookSection .formContainer .pageCount {
@@ -35,6 +37,7 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    color: black;
 }
 
 .addNewBookSection .formContainer form input,
@@ -48,6 +51,7 @@
     border-radius: 5px;
     background-color: #f9f9f9;
     transition: all 0.3s ease;
+    color: black;
 }
 
 .addNewBookSection .formContainer form input:focus,

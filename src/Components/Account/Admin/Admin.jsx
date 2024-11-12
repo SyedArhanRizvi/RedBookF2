@@ -12,7 +12,8 @@ import { motion } from 'framer-motion';
 
 function Admin() {
   // const [acFunc, setAcFunc] = useState(false);
-  const { rbUserPosts, setRBUserPosts } = useAppContext();
+  const { rbUserPosts, setRBUserPosts, cartItems, wishlistBook} = useAppContext();
+
   
   const navigate = useNavigate();
   const [adminAuth, setAdminAuth] = useState(false);
@@ -513,13 +514,13 @@ function Admin() {
             >
               Edit Account
             </p>{" "}
-            <p className="normalPara">Share Account</p>
+            {/* <p className="normalPara">Share Account</p> */}
           </>
           <p className="normalPara" onClick={()=>setChatBot((prev)=>!prev)}>ChatBot</p>
-          <p className="normalPara">Explore</p>
+          {/* <p className="normalPara">Explore</p> */}
           <p className="mainPara">Settings</p>
-          <p className="normalPara">Change Theme</p>
-          <p className="normalPara">Two Factor Privacy</p>
+          {/* <p className="normalPara">Change Theme</p> */ }
+          <p className="normalPara">Two Factor Privacy</p> 
           <p className="normalPara">Change Password</p>
         </div>
         <div className="s2">
@@ -529,13 +530,13 @@ function Admin() {
             </p>
           ) : (
             <p className="p" onClick={() => setAdminPopUp((prev) => !prev)}>
-              Want to became an admin ?
+              Want to became admin?
             </p>
           )}
 
-          <p className="btn" onClick={() => setDeletePopUp(true)}>
+          {/* <p className="btn" onClick={() => setDeletePopUp(true)}>
             Delete Account
-          </p>
+          </p> */}
         </div>
       </div>
       <div className="maindiv">
@@ -596,7 +597,7 @@ function Admin() {
                 setUserPostsC(false);
               }}
             >
-              <h2>Cart Items {redBookUser && redBookUser.cart.length}</h2>
+              <h2>Cart Items {cartItems ? cartItems.length : 0}</h2>
             </div>
             <div
               style={{ borderBottomStyle: userWishListC && "groove" }}
@@ -606,11 +607,11 @@ function Admin() {
                 setUserPostsC(false);
               }}
             >
-              <h2>Wishlist</h2>
+              <h2>Wishlist {wishlistBook ? wishlistBook.length : 0}</h2>
             </div>
           </div>
           <div className="postContainer">
-            {userCartC && <Cart />}
+            {userCartC && <Cart redBookUser={redBookUser}/>}
             {userPostsC && <UserPost></UserPost>}
             {userWishListC && <Wishlist redBookUser={redBookUser}></Wishlist>}
           </div>
